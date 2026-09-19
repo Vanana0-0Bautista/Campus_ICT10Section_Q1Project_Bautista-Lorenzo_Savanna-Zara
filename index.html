@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>1st QT Project</title>
-      <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css" />
-      <script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
+    <link rel="stylesheet" href="https://pyscript.net/releases/2025.3.1/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2025.3.1/core.js"></script>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -13,33 +13,215 @@
 
 
 <style>
-
-.sidebar {
-    width: 100%;
-    height: 70px;
-    background-color: #f3c6d3;
-
-    display: 20px;
-    align-items: center;
-    padding: 0 20px;
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #faf7f2;
+    color: #2c2c2c;
+    margin: 0;
+    padding: 0;
 }
 
-  
+.content-wrapper {
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 20px 30px 60px 30px;
+}
 
+h1 {
+    font-family: 'Great Vibes', cursive;
+    text-align: center;
+    font-size: 3rem;
+    color: #7a5c3e;
+    margin-bottom: 5px;
+}
 
+.tagline {
+    text-align: center;
+    font-size: 0.9rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #a08a6f;
+    margin-bottom: 30px;
+}
 
+h2 {
+    font-size: 1.3rem;
+    color: #4a3624;
+    border-bottom: 1px solid #d8cbb8;
+    padding-bottom: 6px;
+    margin-top: 35px;
+}
+
+form {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 25px 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+label {
+    font-size: 0.95rem;
+}
+
+input[type="text"],
+input[type="number"] {
+    padding: 8px 10px;
+    border: 1px solid #d8cbb8;
+    border-radius: 6px;
+    font-family: 'Poppins', sans-serif;
+}
+
+button {
+    background-color: #7a5c3e;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #5e4630;
+}
+
+#receipt-output {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px 25px;
+    margin-top: 25px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.navbar {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #d8cbb8;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.navbar-brand {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.8rem;
+    color: #7a5c3e !important;
+}
+
+.nav-link {
+    color: #4a3624 !important;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.nav-link:hover {
+    color: #7a5c3e !important;
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #a08a6f;
+    margin-top: 50px;
+    border-top: 1px solid #d8cbb8;
+    padding-top: 15px;
+}
+
+.placeholder-text {
+    color: #b0a290;
+    font-style: italic;
+    text-align: center;
+}
 </style>
-
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light px-4">
+  <a class="navbar-brand" href="index.html">Maison Luxe</a>
+  <div class="ms-auto">
+    <a class="nav-link d-inline-block me-3" href="index.html">Receipt Generator</a>
+    <a class="nav-link d-inline-block" href="Sku.html">SKU Generator</a>
+  </div>
+</nav>
+  <h1>Maison Luxe</h1>
 
-<div class="sidebar">
-    
-     <a class="nav-link" href="dashboard.html">DASHBOARD</a>
-     <br>
-   <a class="nav-link" href="notebooks.html">NOTEBOOKS</a>
-</div>
+  <form id="orderForm">
+      <h2>Customer Information</h2>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+      <br><br>
+      <label for="contact">Contact Number:</label>
+      <input type="text" id="contact" name="contact" required>
+
+      <h2>Shoulder Bags</h2>
+      <input type="checkbox" id="item1" value="185000">
+          <label for="item1">Louis Vuitton Neverfull</label>
+          <br>
+      <input type="checkbox" id="item2" value="220000">
+          <label for="item2">Chanel Classic Flap</label>
+           <br>
+      <input type="checkbox" id="item3" value="150000">
+          <label for="item3">Prada Re-Edition</label>
+          <br>
+      <input type="checkbox" id="item4" value="175000">
+          <label for="item4">YSL Loulou</label>
+          <br><br>
+
+      <label for="quantity1">Quantity:</label>
+      <input type="number" id="quantity1" name="quantity1" min="1" value="1" required>
+
+      <h2>Small Accessories</h2>
+      <input type="checkbox" id="item5" value="45000">
+          <label for="item5">LV Wallet</label>
+          <br>
+      <input type="checkbox" id="item6" value="55000">
+          <label for="item6">Chanel Card Holder</label>
+          <br>
+      <input type="checkbox" id="item7" value="38000">
+          <label for="item7">Prada Keychain</label>
+          <br>
+      <input type="checkbox" id="item8" value="60000">
+          <label for="item8">YSL Pouch</label>
+          <br>
+
+      <div>
+      <input type="radio" id="standard" name="material" value="0">
+      <label for="standard">Standard Leather (+Php0)</label>
+      <input type="radio" id="exotic" name="material" value="25000">
+      <label for="exotic">Exotic Leather (+Php25,000)</label>
+      </div>
+
+      <div>
+      <input type="radio" id="nogift" name="giftwrap" value="0">
+      <label for="nogift">No Gift Wrap (+Php0)</label>
+      <input type="radio" id="gift" name="giftwrap" value="1500">
+      <label for="gift">Gift Wrap (+Php1,500)</label>
+      </div><br>
+
+      <label for="quantity2">Quantity:</label>
+      <input type="number" id="quantity2" name="quantity2" min="1" value="1" required>
+      <br><br>
+
+      <button type="button" py-click="create_order">Place Order</button>
+   </form>
+
+<div id="receipt-output"><p class="placeholder-text">Your order receipt will appear here.</p></div>
+<script type="py" src="main.py"></script>
+
+<footer>
+    &copy; 2026 Bautista & Lorenzo
+</footer>
+
+</body>
+</html>
     
 </body>
 </html>
